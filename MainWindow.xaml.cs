@@ -79,6 +79,36 @@ namespace SpaceBattleShooter
         private void GameLoop(object sender, EventArgs e)
         {
             
+            playerHitBox = new Rect(Canvas.GetLeft(player),Canvas.GetTop(player),player.Width,player.Height);
+
+            enemyCounter -= 1;
+
+            scoretext.Content = "Score" + score;
+            damagetext.Content = "Damage" + damage;
+
+            if (enemyCounter < 0)
+            { 
+                MakeEnemies();
+                enemyCounter = limit;
+            
+            }
+
+
+
+
+            if (moveLeft == true && Canvas.GetLeft(player) > 0)
+            { 
+            Canvas.SetLeft(player, Canvas.GetLeft(player) - playerSpeed);
+            }
+
+
+
+            if (moveRight == true && Canvas.GetLeft(player) + 90 < Application.Current.MainWindow.Width)
+            {
+                Canvas.SetLeft(player, Canvas.GetLeft(player) + playerSpeed);
+            }
+
+
         }
 
         private void OnKeyDown(object sender, KeyEventArgs e)
@@ -164,8 +194,19 @@ namespace SpaceBattleShooter
 
             }
 
-
-
+            Rectangle newEnemy = new Rectangle
+            { 
+                Tag = "enemy",
+                Height= 50,
+                Width= 56,
+                Fill = enemySprite
+            
+            
+            
+            };
+            Canvas.SetTop(newEnemy, -100);
+            Canvas.SetLeft(newEnemy,rand.Next(30,430));
+            MyCanvas.Children.Add(newEnemy);
 
         
         }
