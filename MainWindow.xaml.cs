@@ -63,6 +63,17 @@ namespace SpaceBattleShooter
             bg.ViewportUnits = BrushMappingMode.RelativeToBoundingBox;
             MyCanvas.Background = bg;
 
+
+
+
+            ImageBrush playerImage = new ImageBrush();
+            playerImage.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/player.png"));
+            player.Fill = playerImage;
+
+
+
+
+
         }
 
         private void GameLoop(object sender, EventArgs e)
