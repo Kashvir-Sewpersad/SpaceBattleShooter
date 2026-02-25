@@ -24,6 +24,13 @@
                FontSize="18"
                FontWeight="Bold"
                Foreground="White" />
+        
+        <Label Name="damagetext"
+               Content="Score 0"
+               FontSize="18"
+               FontWeight="Bold"
+               Foreground="White"
+               Canvas.Left=" 419"/>
 
     </Canvas>
 </Window>

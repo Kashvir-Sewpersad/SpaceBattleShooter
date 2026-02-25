@@ -13,6 +13,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
+
+using System.Windows.Threading;
+
 namespace SpaceBattleShooter
 {
     /// <summary>
@@ -20,10 +24,44 @@ namespace SpaceBattleShooter
     /// </summary>
     public partial class MainWindow : Window
     {
+        DispatcherTimer gameTimer = new DispatcherTimer();
+        bool moveLeft;
+        bool moveRight;
+        List<Rectangle> itemRemover = new List<Rectangle>();
+
+
+        Random rand = new Random();
+
+        int enemySpriteCounter = 0;
+        int enemyCounter = 100;
+        int playerSpeed = 10;
+        int limit = 50;
+        int score = 0;
+        int damage = 0;
+        int enemySpeed = 10;
+
+        Rect playerHitBox;
+
         public MainWindow()
         {
             InitializeComponent();
 
+        }
+
+        private void OnKeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void OnKeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void MakeEnemies() 
+        {
+        
+        
         }
     }
 }
