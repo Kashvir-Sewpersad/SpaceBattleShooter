@@ -83,17 +83,90 @@ namespace SpaceBattleShooter
 
         private void OnKeyDown(object sender, KeyEventArgs e)
         {
-
+            if (e.Key == Key.Left) 
+            { 
+                moveLeft = true;
+            
+            }
+            if (e.Key == Key.Right)
+            {
+                moveRight = true;
+            }
         }
 
         private void OnKeyUp(object sender, KeyEventArgs e)
         {
+            if (e.Key == Key.Left)
+            {
+                moveLeft = false ;
+
+            }
+            if (e.Key == Key.Right)
+            {
+                moveRight = false ;
+            }
+
+
+            if (e.Key == Key.Space)
+            {
+                Rectangle newBullet = new Rectangle
+                {
+                    Tag = "bullet",
+                    Height = 20,
+                    Width = 5,
+                    Fill =  Brushes.White,
+                    Stroke = Brushes.Red
+
+
+                };
+
+                Canvas.SetLeft(newBullet, Canvas.GetLeft(player) + player.Width / 2);
+                Canvas.SetTop(newBullet, Canvas.GetTop(player) - newBullet.Height);
+
+                MyCanvas.Children.Add(newBullet);
+
+
+
+
+
+            }
+
+
 
         }
 
         private void MakeEnemies() 
         {
-        
+            ImageBrush enemySprite = new ImageBrush();
+            enemySpriteCounter = rand.Next(1, 5);
+
+            switch (enemySpriteCounter)
+            {
+                case 1:
+                    enemySprite.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/1.png"));
+                    break;
+
+                case 2:
+                    enemySprite.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/2.png"));
+                    break;
+
+                case 3:
+                    enemySprite.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/3.png"));
+                    break;
+
+                case 4:
+                    enemySprite.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/4.png"));
+                    break;
+
+                case 5:
+                    enemySprite.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/5.png"));
+                    break;
+
+            }
+
+
+
+
         
         }
     }
