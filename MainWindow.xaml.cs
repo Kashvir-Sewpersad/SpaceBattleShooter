@@ -23,6 +23,7 @@ namespace SpaceBattleShooter
         public MainWindow()
         {
             InitializeComponent();
+
         }
     }
 }
