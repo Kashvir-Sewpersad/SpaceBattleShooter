@@ -166,6 +166,24 @@ namespace SpaceBattleShooter
             
             }
 
+
+            if (score > 5)
+            {
+                limit = 20;
+                enemySpeed = 15;
+            }
+
+            if (damage > 99)
+            { 
+                gameTimer.Stop();
+                damagetext.Content = "Damage : 100";
+                damagetext.Foreground = Brushes.Red;
+                MessageBox.Show("CAPTAIN YOU HAVE DESTROYED" + score + "ALIEN SHIPS" + Environment.NewLine + "PRESS OK TO LAY AGAIN", "MOO says: ");
+
+                    System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+                Application.Current.Shutdown();
+            }
+
         }
 
 
