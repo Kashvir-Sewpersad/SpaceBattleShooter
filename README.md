@@ -6,8 +6,9 @@ Pilot your spaceship, shoot enemy waves, avoid/destroy incoming threats, and try
 
 
 
-https://github.com/user-attachments/assets/7f3f9c2d-d1c5-4b60-ae5f-5fdd0837a913
 
+
+![SPACE SHOOTER GIF](https://github.com/user-attachments/assets/5647625a-011c-45bf-a9bc-98552fce49ec)
 
 
 ## Table of Contents
