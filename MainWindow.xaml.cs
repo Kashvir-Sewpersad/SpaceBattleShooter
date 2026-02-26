@@ -87,29 +87,53 @@ namespace SpaceBattleShooter
             damagetext.Content = "Damage" + damage;
 
             if (enemyCounter < 0)
-            { 
-                MakeEnemies();
-                enemyCounter = limit;
+                { 
+                    MakeEnemies();
+                    enemyCounter = limit;
             
-            }
+                }
 
 
 
 
             if (moveLeft == true && Canvas.GetLeft(player) > 0)
-            { 
-            Canvas.SetLeft(player, Canvas.GetLeft(player) - playerSpeed);
-            }
+                { 
+                    Canvas.SetLeft(player, Canvas.GetLeft(player) - playerSpeed);
+                }
 
 
 
             if (moveRight == true && Canvas.GetLeft(player) + 90 < Application.Current.MainWindow.Width)
-            {
-                Canvas.SetLeft(player, Canvas.GetLeft(player) + playerSpeed);
-            }
+                {
+                    Canvas.SetLeft(player, Canvas.GetLeft(player) + playerSpeed);
+                }
 
 
+
+            foreach (var x in MyCanvas.Children.OfType<Rectangle>())
+            
+                if (x is Rectangle && (string)x.Tag == "bullet")
+                    {
+                        Canvas.SetTop(x, Canvas.GetTop(x) - 20);
+
+                        Rect bulletHitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
+
+
+                        if (Canvas.GetTop(x) < 10)
+                            {
+                                itemRemover.Add(x);
+                    
+                            }
+                
+                    }
+            
+            
         }
+
+
+
+
+        
 
         private void OnKeyDown(object sender, KeyEventArgs e)
         {
