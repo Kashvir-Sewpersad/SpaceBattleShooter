@@ -10,12 +10,14 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Media3D;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 
 
 using System.Windows.Threading;
+using System.Xml.Linq;
 
 namespace SpaceBattleShooter
 {
@@ -78,8 +80,8 @@ namespace SpaceBattleShooter
 
         private void GameLoop(object sender, EventArgs e)
         {
-            
-            playerHitBox = new Rect(Canvas.GetLeft(player),Canvas.GetTop(player),player.Width,player.Height);
+
+            playerHitBox = new Rect(Canvas.GetLeft(player), Canvas.GetTop(player), player.Width, player.Height);
 
             enemyCounter -= 1;
 
@@ -87,47 +89,83 @@ namespace SpaceBattleShooter
             damagetext.Content = "Damage" + damage;
 
             if (enemyCounter < 0)
-                { 
-                    MakeEnemies();
-                    enemyCounter = limit;
-            
-                }
+            {
+                MakeEnemies();
+                enemyCounter = limit;
+
+            }
 
 
 
 
             if (moveLeft == true && Canvas.GetLeft(player) > 0)
-                { 
-                    Canvas.SetLeft(player, Canvas.GetLeft(player) - playerSpeed);
-                }
+            {
+                Canvas.SetLeft(player, Canvas.GetLeft(player) - playerSpeed);
+            }
 
 
 
             if (moveRight == true && Canvas.GetLeft(player) + 90 < Application.Current.MainWindow.Width)
-                {
-                    Canvas.SetLeft(player, Canvas.GetLeft(player) + playerSpeed);
-                }
+            {
+                Canvas.SetLeft(player, Canvas.GetLeft(player) + playerSpeed);
+            }
 
 
 
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
-            
-                if (x is Rectangle && (string)x.Tag == "bullet")
+            {
+                if ((string)x.Tag == "bullet")
+                {
+                    Canvas.SetTop(x, Canvas.GetTop(x) - 20);
+
+                    Rect bulletHitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
+
+                    if (Canvas.GetTop(x) < 10)
                     {
-                        Canvas.SetTop(x, Canvas.GetTop(x) - 20);
-
-                        Rect bulletHitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
-
-
-                        if (Canvas.GetTop(x) < 10)
+                        itemRemover.Add(x);
+                    }
+                    foreach (var y in MyCanvas.Children.OfType<Rectangle>())
+                    {
+                        if (y is Rectangle && (string)y.Tag == "enemy")
+                        { 
+                            Rect enemyHit = new Rect(Canvas.GetLeft(y), Canvas.GetTop(y), y.Width, y.Height);
+                            if (bulletHitBox.IntersectsWith(enemyHit))
                             {
                                 itemRemover.Add(x);
-                    
+                                itemRemover.Add(y);
+                                score++;
                             }
-                
+                        }
+                    
                     }
+
+                }
+
+                if (x is Rectangle && (string)x.Tag == "enemy")
+                {
+                    Canvas.SetTop(x, Canvas.GetTop(x) + enemySpeed);
+
+                    if (Canvas.GetTop(x) > 750)
+                    {
+                        itemRemover.Add(x);
+                        damage += 10;
+                    
+                    }
+                    Rect enemyHitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
+
+                    if (playerHitBox.IntersectsWith(enemyHitBox))
+                    {
+                        itemRemover.Add(x);
+                        damage += 5;
+                    }
+                }
+            }
+            foreach (Rectangle i in itemRemover)
+            { 
+                MyCanvas.Children.Remove(i);
             
-            
+            }
+
         }
 
 

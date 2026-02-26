@@ -30,7 +30,7 @@
                FontSize="18"
                FontWeight="Bold"
                Foreground="White"
-               Canvas.Left=" 419"/>
+               Canvas.Left="410" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
     </Canvas>
 </Window>
