@@ -1,18 +1,11 @@
-# Space Battle Shooter
+# 🚀 Space Battle Shooter
 
-A simple, classic-style **space shooter** game made in **C# WPF** as a learning / portfolio project.
-
+A simple, classic-style **space shooter** game made in **C# WPF** as a learning / portfolio project.  
 Pilot your spaceship, shoot enemy waves, avoid/destroy incoming threats, and try to survive as long as possible while racking up points.
-
-
-
-
 
 ![SPACE SHOOTER GIF](https://github.com/user-attachments/assets/5647625a-011c-45bf-a9bc-98552fce49ec)
 
-
-## Table of Contents
-
+## 📑 Table of Contents
 - [Project Overview](#project-overview)
 - [Key Features](#key-features)
 - [Technologies & Approach](#technologies--approach)
@@ -22,25 +15,25 @@ Pilot your spaceship, shoot enemy waves, avoid/destroy incoming threats, and try
 - [Controls](#controls)
 - [Important Notes](#important-notes)
 
-## Project Overview
+## 🌐 Project Overview
 
-This is a lightweight, educational **2D space shooter** built with WPF.
+This is a lightweight, educational **2D space shooter** built with WPF.  
+You control a player ship at the bottom of the screen, firing bullets upward while dodging or destroying enemy ships and obstacles coming from the top.
 
-You control a player ship at the bottom of the screen, firing bullets upward while dodging or destroying enemy ships and obstacles coming from the top.  
 The project demonstrates clean game loop implementation, collision detection, sprite handling, input processing, and WPF rendering techniques using XAML + code-behind.
 
-## Key Features
+## ✨ Key Features
 
-- Smooth player ship movement (left/right)
-- Projectile shooting (spacebar)
-- Multiple enemy types spawning in waves
-- Score system based on destroyed enemies
-- Collision detection (player ↔ enemy, projectile ↔ enemy, player ↔ projectile)
-- Simple health / lives system (or game over on contact)
-- Clean sprite/image-based rendering using WPF Image controls
-- Game restart functionality
+- Smooth player ship movement (left/right)  
+- Projectile shooting (spacebar)  
+- Multiple enemy types spawning in waves  
+- Score system based on destroyed enemies  
+- Collision detection (player ↔ enemy, projectile ↔ enemy, player ↔ projectile)  
+- Simple health / lives system (or game over on contact)  
+- Clean sprite/image-based rendering using WPF Image controls  
+- Game restart functionality  
 
-## Technologies & Approach
+## 🛠️ Technologies & Approach
 
 **Core Language & Framework**  
 - C#  
@@ -57,7 +50,7 @@ The project demonstrates clean game loop implementation, collision detection, sp
 
 These choices keep the project simple, understandable, and performant for a small-scale arcade game.
 
-## Prerequisites
+## 📋 Prerequisites
 
 - **Operating System**: Windows 10 / 11  
 - **.NET SDK / Runtime**: .NET 6.0 / .NET 7.0 / .NET 8.0  
@@ -66,22 +59,22 @@ These choices keep the project simple, understandable, and performant for a smal
   - Visual Studio 2022  
   - JetBrains Rider  
 
-## Setup Instructions
+## 🚀 Setup Instructions
 
 ### Option 1: Clone from GitHub
 
 1. Copy the repository URL  
-   `https://github.com/Kashvir-Sewpersad/SpaceBattleShooter.git`
+   `https://github.com/Kashvir-Sewpersad/SpaceBattleShooter.git`  
 2. In your IDE:  
    - Visual Studio → File → Clone Repository…  
-   - Rider → VCS → Get from Version Control…
-3. Paste URL and clone
+   - Rider → VCS → Get from Version Control…  
+3. Paste URL and clone  
 
 ### Option 2: Download ZIP
 
 1. Download ZIP from GitHub  
 2. Extract to a folder (e.g. `C:\Projects\SpaceBattleShooter`)  
-3. Open the `.sln` file in Visual Studio / Rider
+3. Open the `.sln` file in Visual Studio / Rider  
 
 ### Run the Project
 
@@ -92,7 +85,7 @@ These choices keep the project simple, understandable, and performant for a smal
 
 The game window should launch immediately.
 
-## How to Play
+## 🎯 How to Play
 
 - Move your ship left/right to dodge enemies  
 - Shoot projectiles to destroy incoming enemies  
@@ -101,16 +94,16 @@ The game window should launch immediately.
 
 Try to beat your high score!
 
-## Controls
+## ⌨️ Controls
 
-| Key          | Action                  |
-|--------------|-------------------------|
-| ← →          | Move ship left/right    |
-| Space        | Fire projectile         |
-| R            | Restart game            |
-| Esc          | Exit / Pause            |
+| Key       | Action                     |
+|-----------|----------------------------|
+| ← →       | Move ship left/right       |
+| Space     | Fire projectile            |
+| R         | Restart game               |
+| Esc       | Exit / Pause               |
 
-## Important Notes
+## ⚠️ Important Notes
 
 - No external NuGet packages or APIs are used  
 - All assets (sprites) are stored in the `images/` folder  
